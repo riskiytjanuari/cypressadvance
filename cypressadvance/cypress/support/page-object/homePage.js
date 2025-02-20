@@ -4,6 +4,7 @@ class homePage{
     verifyProductPage(){
         cy.get(this.product_page)
     }
+    
 }
 
 export default new homePage()

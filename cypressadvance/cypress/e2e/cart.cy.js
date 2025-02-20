@@ -4,7 +4,7 @@ describe('add item', () => {
   beforeEach(() => {
     cy.visit(''); // Mengunjungi halaman sebelum setiap test
   })
-  it('add 1 item', () => {
+  it.only('add 1 item', () => {
     cy.get('#user-name').type('standard_user')
     cy.get('#password').type('secret_sauce')
     cy.get('[data-test="login-button"]').click()

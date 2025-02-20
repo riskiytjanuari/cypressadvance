@@ -4,20 +4,24 @@ import homePage from "../support/page-object/homePage";
 
 describe('login page', () => {
   beforeEach(() => {
-    cy.visit(''); // Mengunjungi halaman sebelum setiap test
+    cy.visit(''); 
   })
   it ('success login', () => {
     loginPage.inputUsername('standard_user')
-    //loginPage.inputPassword('secret_sauce')
-    loginPage.clickLoginButton
-    homePage.verifyProductPage
+    loginPage.verifyUsername()
+    loginPage.inputPassword('secret_sauce')
+    loginPage.verifyPasswrod()
+    loginPage.clickLoginButton()
+    homePage.verifyProductPage()
   })
 
   it('failed login', () => {
     loginPage.inputUsername('standard_user')
-    loginPage.inputPassword('secretasdfa')
-    loginPage.clickLoginButton
-    loginPage.errorMessage
+    loginPage.verifyUsername()
+    loginPage.inputPassword('error')
+    loginPage.verifyPasswrod()
+    loginPage.clickLoginButton()
+    homePage.verifyProductPage()
   })
 
 })
